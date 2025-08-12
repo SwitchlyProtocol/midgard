@@ -112,7 +112,7 @@ func main() {
 	midgardState := getMidgardState(ctx, lastHeight, lastTimestamp)
 	midlog.DebugF("Pools checked: %v", midgardState)
 
-	thorNodeURL := config.Global.ThorChain.ThorNodeURL
+	thorNodeURL := config.Global.Switchly.SwitchlyNodeURL
 	thornodeState := getThornodeState(ctx, thorNodeURL, lastHeight)
 
 	if *OnlyStructuredDiff {

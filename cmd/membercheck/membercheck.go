@@ -264,7 +264,7 @@ func (x *MemberMap) TotalUnits() int64 {
 func getThorNodeMembers(pool string, height int64) MemberMap {
 	midlog.InfoF("Checking pool units sum. Pool: %s Height: %d", pool, height)
 
-	thorNodeURL := config.Global.ThorChain.ThorNodeURL
+	thorNodeURL := config.Global.Switchly.SwitchlyNodeURL
 
 	var summary ThorNodeSummary
 	queryThorNode(thorNodeURL, "/pool/"+pool, height, &summary)

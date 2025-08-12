@@ -225,7 +225,7 @@ func NodeUnits(thorNodeUrl string, urlPath string, height int64) int64 {
 }
 
 func fetchNodeUnits(summary *UnitsSummary) {
-	thorNodeUrl := config.Global.ThorChain.ThorNodeURL
+	thorNodeUrl := config.Global.Switchly.SwitchlyNodeURL
 	unitsBefore := NodeUnits(thorNodeUrl, "/pool/"+summary.Pool, summary.Height-1)
 	unitsAfter := NodeUnits(thorNodeUrl, "/pool/"+summary.Pool, summary.Height)
 	summary.NodeDiff = unitsBefore - unitsAfter
