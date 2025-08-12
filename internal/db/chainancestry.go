@@ -56,7 +56,7 @@ func CombinedForkInfoMap() *map[string]config.ForkInfo {
 	m := make(map[string]config.ForkInfo)
 	infos := []config.ForkInfo{}
 	infos = append(infos, wellKnownChainInfos...)
-	infos = append(infos, config.Global.ThorChain.ForkInfos...)
+	infos = append(infos, config.Global.Switchly.ForkInfos...)
 
 	for _, fi := range infos {
 		if fi.ParentChainId != "" {

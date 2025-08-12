@@ -293,7 +293,7 @@ func (s *Sync) KeepInSync(ctx context.Context, out chan chain.Block) {
 					return
 				}
 			}
-			db.SleepWithContext(ctx, config.Global.ThorChain.LastChainBackoff.Value())
+			db.SleepWithContext(ctx, config.Global.Switchly.LastChainBackoff.Value())
 		}
 
 		if inSync {
@@ -316,7 +316,7 @@ var GlobalSync *Sync
 
 func InitGlobalSync(ctx context.Context) {
 	var err error
-	notinchain.BaseURL = config.Global.ThorChain.ThorNodeURL
+	notinchain.BaseURL = config.Global.Switchly.SwitchlyNodeURL
 	GlobalSync = &Sync{ctx: ctx}
 	GlobalSync.chainClient, err = chain.NewClient(ctx)
 	if err != nil {

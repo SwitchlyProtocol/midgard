@@ -154,7 +154,7 @@ func InitializeChainVarsFromThorNodeStatus(status *coretypes.ResultStatus) {
 }
 
 func getThorNodeStatus() (*coretypes.ResultStatus, error) {
-	endpoint, err := url.Parse(config.Global.ThorChain.TendermintURL)
+	endpoint, err := url.Parse(config.Global.Switchly.TendermintURL)
 	if err != nil {
 		return nil, err
 	}
@@ -163,7 +163,7 @@ func getThorNodeStatus() (*coretypes.ResultStatus, error) {
 	endpoint.Path = ""
 
 	rpc, err := rpchttp.NewWithClient(endpoint.String(), ws,
-		&http.Client{Timeout: config.Global.ThorChain.ReadTimeout.Value()})
+		&http.Client{Timeout: config.Global.Switchly.ReadTimeout.Value()})
 	if err != nil {
 		return nil, err
 	}

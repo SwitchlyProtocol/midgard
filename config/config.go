@@ -25,7 +25,7 @@ type Config struct {
 	// v2/health:InSync is true if Now - LastAvailableBlock < MaxBlockAge
 	MaxBlockAge Duration `yaml:"max_block_age" split_words:"true"`
 
-	ThorChain ThorChain `yaml:"thorchain"`
+	Switchly SwitchlyChain `yaml:"switchly"`
 
 	BlockStore BlockStore
 
@@ -79,16 +79,16 @@ type EventRecorder struct {
 	OnMessageEnabled  bool `yaml:"on_message_enabled" split_words:"true"`
 }
 
-type ThorChain struct {
-	TendermintURL  string `yaml:"tendermint_url" split_words:"true"`
-	ThorNodeURL    string `yaml:"thornode_url" split_words:"true"`
+type SwitchlyChain struct {
+	TendermintURL    string `yaml:"tendermint_url" split_words:"true"`
+	SwitchlyNodeURL  string `yaml:"switchlynode_url" split_words:"true"`
 	FetchBatchSize int    `yaml:"fetch_batch_size" split_words:"true"`
 	Parallelism    int    `yaml:"parallelism" split_words:"true"`
 
-	// Timeout for fetch requests to ThorNode
+	// Timeout for fetch requests to SwitchlyNode
 	ReadTimeout Duration `yaml:"read_timeout" split_words:"true"`
 
-	// If fetch from ThorNode fails, wait this much before retrying
+	// If fetch from SwitchlyNode fails, wait this much before retrying
 	LastChainBackoff Duration `yaml:"last_chain_backoff" split_words:"true"`
 
 	// Entries found in the config are appended to the compiled-in entries from `chainancestry.go`
@@ -98,10 +98,10 @@ type ThorChain struct {
 	// Parent chains should come before their children.
 	ForkInfos []ForkInfo `yaml:"fork_infos" split_words:"true"`
 
-	// MaxStatusRetries is the number of times to fetch Thornode status before fatal.
+	// MaxStatusRetries is the number of times to fetch SwitchlyNode status before fatal.
 	MaxStatusRetries int `yaml:"max_status_retries" split_words:"true"`
 
-	// StatusRetryBackoff is the time to wait between Thornode status retries.
+	// StatusRetryBackoff is the time to wait between SwitchlyNode status retries.
 	StatusRetryBackoff Duration `yaml:"status_retry_backoff" split_words:"true"`
 }
 
@@ -168,8 +168,8 @@ type Debug struct {
 
 var defaultConfig = Config{
 	ListenPort: 8080,
-	ThorChain: ThorChain{
-		ThorNodeURL:      "http://localhost:1317/thorchain",
+	Switchly: SwitchlyChain{
+		SwitchlyNodeURL:  "http://localhost:1317/switchly",
 		TendermintURL:    "http://localhost:26657/websocket",
 		ReadTimeout:      Duration(8 * time.Second),
 		LastChainBackoff: Duration(7 * time.Second),
@@ -295,8 +295,8 @@ func LogAndcheckUrls(c *Config) {
 	urls := []struct {
 		url, name string
 	}{
-		{c.ThorChain.ThorNodeURL, "THORNode REST URL"},
-		{c.ThorChain.TendermintURL, "Tendermint RPC URL"},
+		{c.Switchly.SwitchlyNodeURL, "SwitchlyNode REST URL"},
+		{c.Switchly.TendermintURL, "Tendermint RPC URL"},
 		{c.BlockStore.Remote, "BlockStore Remote URL"},
 	}
 	for _, v := range urls {

@@ -60,15 +60,15 @@ func (c *Client) BatchSize() int {
 // NewClient configures a new instance. Timeout applies to all requests on endpoint.
 func NewClient(ctx context.Context) (*Client, error) {
 	cfg := &config.Global
-	var timeout time.Duration = cfg.ThorChain.ReadTimeout.Value()
-
-	endpoint, err := url.Parse(cfg.ThorChain.TendermintURL)
+		var timeout time.Duration = cfg.Switchly.ReadTimeout.Value()
+	
+	endpoint, err := url.Parse(cfg.Switchly.TendermintURL)
 	if err != nil {
 		logger.FatalE(err, "Exit on malformed Tendermint RPC URL")
 	}
 
-	batchSize := cfg.ThorChain.FetchBatchSize
-	parallelism := cfg.ThorChain.Parallelism
+	batchSize := cfg.Switchly.FetchBatchSize
+	parallelism := cfg.Switchly.Parallelism
 	if batchSize%parallelism != 0 {
 		logger.FatalF("BatchSize=%d must be divisible by Parallelism=%d", batchSize, parallelism)
 	}
@@ -115,13 +115,13 @@ func (c *Client) GetBlock(height *int64) (*coretypes.ResultBlock, error) {
 // Fetch the summary of the chain: latest height, node address, ...
 func (c *Client) RefreshStatus() (rs *coretypes.ResultStatus, err error) {
 	cfg := &config.Global
-	for i := 0; i < cfg.ThorChain.MaxStatusRetries; i++ {
+	for i := 0; i < cfg.Switchly.MaxStatusRetries; i++ {
 		rs, err = c.client.Status(c.ctx)
 		if err == nil {
 			return rs, nil
 		}
 		logger.ErrorE(err, "tendermint RPC status")
-		time.Sleep(time.Duration(cfg.ThorChain.StatusRetryBackoff))
+		time.Sleep(time.Duration(cfg.Switchly.StatusRetryBackoff))
 	}
 	return nil, fmt.Errorf("tendermint RPC status: %w", err)
 }
