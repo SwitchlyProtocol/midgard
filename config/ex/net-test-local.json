@@ -1,6 +1,6 @@
 {
-  "thorchain": {
+  "switchly": {
     "tendermint_url": "http://localhost:26657/websocket",
-    "thornode_url": "http://localhost:1318/thorchain"
+    "switchlynode_url": "http://localhost:1318/switchly"
   }
 }

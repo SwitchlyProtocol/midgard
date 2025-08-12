@@ -2,7 +2,7 @@
   "listen_port": 8080,
   "max_block_age": "60s",
   "shutdown_timeout": "5s",
-  "thorchain": {
+  "switchly": {
     "last_chain_backoff": "7s",
     "fetch_batch_size": 100,
     "parallelism": 4,

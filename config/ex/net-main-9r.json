@@ -1,6 +1,6 @@
 {
-  "thorchain": {
+  "switchly": {
     "tendermint_url": "https://rpc.ninerealms.com/websocket",
-    "thornode_url": "https://thornode.ninerealms.com/thorchain"
+    "switchlynode_url": "https://switchlynode.ninerealms.com/switchly"
   }
 }
