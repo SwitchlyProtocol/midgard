@@ -9,10 +9,10 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/db/testdb"
-	"gitlab.com/thorchain/midgard/internal/util/jobs"
-	"gitlab.com/thorchain/midgard/internal/websockets"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/db/testdb"
+	"github.com/switchlyprotocol/midgard/internal/util/jobs"
+	"github.com/switchlyprotocol/midgard/internal/websockets"
 )
 
 type devNull struct{}

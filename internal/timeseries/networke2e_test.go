@@ -5,9 +5,9 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"gitlab.com/thorchain/midgard/internal/db/testdb"
-	"gitlab.com/thorchain/midgard/internal/fetch/notinchain"
-	"gitlab.com/thorchain/midgard/openapi/generated/oapigen"
+	"github.com/switchlyprotocol/midgard/internal/db/testdb"
+	"github.com/switchlyprotocol/midgard/internal/fetch/notinchain"
+	"github.com/switchlyprotocol/midgard/openapi/generated/oapigen"
 )
 
 func TestNetworkAPY(t *testing.T) {

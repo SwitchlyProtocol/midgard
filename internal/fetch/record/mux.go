@@ -12,10 +12,10 @@ import (
 
 	abci "github.com/cometbft/cometbft/abci/types"
 
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/fetch/sync/chain"
-	"gitlab.com/thorchain/midgard/internal/util/miderr"
-	"gitlab.com/thorchain/midgard/internal/util/timer"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync/chain"
+	"github.com/switchlyprotocol/midgard/internal/util/miderr"
+	"github.com/switchlyprotocol/midgard/internal/util/timer"
 
 	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
 	btypes "github.com/cosmos/cosmos-sdk/x/bank/types"
@@ -364,7 +364,7 @@ func processEvent(event abci.Event, meta *Metadata) error {
 		}
 		Recorder.OnTHORNameChange(&x, meta)
 	case "switch":
-		var x Switch
+		var x SwitchEvent
 		if err := x.LoadTendermint(attrs); err != nil {
 			return err
 		}

@@ -3,8 +3,8 @@ package timer
 import (
 	"time"
 
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
 )
 
 type milliCounter time.Time

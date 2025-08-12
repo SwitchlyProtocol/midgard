@@ -3,8 +3,8 @@ package config_test
 import (
 	"testing"
 
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/db/testdb"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/db/testdb"
 )
 
 func TestMustLoadConfigFile(t *testing.T) {

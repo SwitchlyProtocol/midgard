@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 
-	"gitlab.com/thorchain/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/db"
 )
 
 type PoolAdds struct {

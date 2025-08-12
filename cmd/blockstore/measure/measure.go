@@ -21,9 +21,9 @@ import (
 
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/fetch/sync/blockstore"
-	"gitlab.com/thorchain/midgard/internal/util/timer"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync/blockstore"
+	"github.com/switchlyprotocol/midgard/internal/util/timer"
 )
 
 const SequentialStartBlock = 990000

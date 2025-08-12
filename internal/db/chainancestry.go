@@ -5,7 +5,7 @@ import (
 	"unsafe"
 
 	"github.com/rs/zerolog/log"
-	"gitlab.com/thorchain/midgard/config"
+	"github.com/switchlyprotocol/midgard/config"
 )
 
 var wellKnownChainInfos = []config.ForkInfo{

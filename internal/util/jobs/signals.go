@@ -9,8 +9,8 @@ import (
 	"time"
 
 	"github.com/pascaldekloe/metrics/gostat"
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
 )
 
 var signals chan os.Signal

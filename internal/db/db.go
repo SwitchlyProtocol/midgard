@@ -10,9 +10,9 @@ import (
 	_ "github.com/jackc/pgx/v4/stdlib"
 	"github.com/pascaldekloe/metrics"
 	"github.com/rs/zerolog/log"
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/util"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
 )
 
 // The Query part of the SQL client.

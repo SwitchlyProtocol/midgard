@@ -6,8 +6,8 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"gitlab.com/thorchain/midgard/internal/util/miderr"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/internal/util/miderr"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
 )
 
 func GetMigrateUpdates(currentDdlHash md5Hash, tag string) (data []byte, err error) {

@@ -6,9 +6,9 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/db/testdb"
-	"gitlab.com/thorchain/midgard/openapi/generated/oapigen"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/db/testdb"
+	"github.com/switchlyprotocol/midgard/openapi/generated/oapigen"
 )
 
 func bucketPass(t *testing.T, getParams string) (ret []string) {

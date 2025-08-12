@@ -5,9 +5,9 @@ import (
 	"os"
 	"strings"
 
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/util"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
 )
 
 type Genesis struct {

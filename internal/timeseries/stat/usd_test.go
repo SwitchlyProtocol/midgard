@@ -4,10 +4,10 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/db/testdb"
-	"gitlab.com/thorchain/midgard/internal/timeseries"
-	"gitlab.com/thorchain/midgard/openapi/generated/oapigen"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/db/testdb"
+	"github.com/switchlyprotocol/midgard/internal/timeseries"
+	"github.com/switchlyprotocol/midgard/openapi/generated/oapigen"
 )
 
 func TestUsdPrices(t *testing.T) {

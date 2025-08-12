@@ -5,16 +5,16 @@ import (
 	"strings"
 
 	"github.com/lib/pq"
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/util"
-	"gitlab.com/thorchain/midgard/internal/util/miderr"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/internal/util/miderr"
 )
 
-func AddressIsRune(address string) bool {
-	return (strings.HasPrefix(address, "thor") ||
-		strings.HasPrefix(address, "tthor") ||
-		strings.HasPrefix(address, "sthor"))
+func AddressIsSwitch(address string) bool {
+	return (strings.HasPrefix(address, "switchly") ||
+		strings.HasPrefix(address, "tswitchly") ||
+		strings.HasPrefix(address, "sswitchly"))
 }
 
 // Empty prevents the SQL driver from writing NULL values.
@@ -143,7 +143,7 @@ func (r *eventRecorder) OnFee(e *Fee, meta *Metadata) {
 	// and the RUNE equivalent is deducted from the pool's RUNE and sent to the reserve
 	coinType := GetCoinType(e.Asset)
 	pool := GetNativeAsset(e.Asset)
-	if !IsRune(e.Asset) {
+	if !IsSwitch(e.Asset) {
 		if coinType == AssetNative {
 			r.AddPoolAssetE8Depth(pool, e.AssetE8)
 		}
@@ -371,7 +371,7 @@ func (r *eventRecorder) OnSlash(e *Slash, meta *Metadata) {
 		}
 		coinType := GetCoinType(a.Asset)
 		switch coinType {
-		case Rune:
+		case Switch:
 			r.AddPoolRuneE8Depth(e.Pool, a.E8)
 		case AssetNative:
 			r.AddPoolAssetE8Depth(e.Pool, a.E8)
@@ -448,25 +448,25 @@ func (r *eventRecorder) OnSwap(e *Swap, meta *Metadata) {
 	txType := util.TxTypeFromMemo(string(e.Memo))
 	var direction db.SwapDirection
 	switch {
-	case fromCoin == Rune && toCoin == AssetNative:
+	case fromCoin == Switch && toCoin == AssetNative:
 		direction = db.RuneToAsset
-	case fromCoin == AssetNative && toCoin == Rune:
+	case fromCoin == AssetNative && toCoin == Switch:
 		direction = db.AssetToRune
-	case fromCoin == Rune && toCoin == AssetSynth:
+	case fromCoin == Switch && toCoin == AssetSynth:
 		direction = db.RuneToSynth
-	case fromCoin == AssetSynth && toCoin == Rune:
+	case fromCoin == AssetSynth && toCoin == Switch:
 		direction = db.SynthToRune
-	case fromCoin == Rune && toCoin == AssetDerived:
+	case fromCoin == Switch && toCoin == AssetDerived:
 		direction = db.RuneToDerived
-	case fromCoin == AssetDerived && toCoin == Rune:
+	case fromCoin == AssetDerived && toCoin == Switch:
 		direction = db.DerivedToRune
-	case fromCoin == AssetTrade && toCoin == Rune:
+	case fromCoin == AssetTrade && toCoin == Switch:
 		direction = db.TradeToRune
-	case fromCoin == Rune && toCoin == AssetTrade:
+	case fromCoin == Switch && toCoin == AssetTrade:
 		direction = db.RuneToTrade
-	case fromCoin == Rune && toCoin == AssetSecure:
+	case fromCoin == Switch && toCoin == AssetSecure:
 		direction = db.RuneToSecure
-	case fromCoin == AssetSecure && toCoin == Rune:
+	case fromCoin == AssetSecure && toCoin == Switch:
 		direction = db.SecureToRune
 	default:
 		miderr.LogEventParseErrorF(
@@ -503,7 +503,7 @@ func (r *eventRecorder) OnSwap(e *Swap, meta *Metadata) {
 		}
 	}
 
-	if toCoin == Rune {
+	if toCoin == Switch {
 		// Swap adds pool asset in exchange of RUNE.
 		if fromCoin == AssetNative {
 			r.AddPoolAssetE8Depth(e.Pool, e.FromE8)
@@ -684,7 +684,7 @@ func (*eventRecorder) OnTHORNameChange(e *THORNameChange, meta *Metadata) {
 	}
 }
 
-func (*eventRecorder) OnSwitch(e *Switch, meta *Metadata) {
+func (*eventRecorder) OnSwitch(e *SwitchEvent, meta *Metadata) {
 	if e.FromAddr == nil {
 		e.FromAddr = empty
 	}

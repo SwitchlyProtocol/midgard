@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	abci "github.com/cometbft/cometbft/abci/types"
-	"gitlab.com/thorchain/midgard/internal/db/testdb"
-	"gitlab.com/thorchain/midgard/internal/fetch/record"
+	"github.com/switchlyprotocol/midgard/internal/db/testdb"
+	"github.com/switchlyprotocol/midgard/internal/fetch/record"
 )
 
 type FakeDemux struct {
@@ -38,7 +38,7 @@ type FakeDemux struct {
 		record.UpdateNodeAccountStatus
 		record.ValidatorRequestLeave
 		record.PoolBalanceChange
-		record.Switch
+		record.SwitchEvent
 		record.THORNameChange
 		record.SlashPoints
 		record.SetNodeMimir
@@ -57,10 +57,10 @@ func (d *FakeDemux) processDemux(event abci.Event) int64 {
 		}
 		return d.reuse.Swap.LiqFeeInRuneE8
 	case "switch":
-		if err := d.reuse.Switch.LoadTendermint(attrs); err != nil {
+		if err := d.reuse.SwitchEvent.LoadTendermint(attrs); err != nil {
 			panic(err)
 		}
-		return d.reuse.Switch.BurnE8
+		return d.reuse.SwitchEvent.BurnE8
 	case "transfer":
 		if err := d.reuse.Transfer.LoadTendermint(attrs); err != nil {
 			panic(err)
@@ -85,7 +85,7 @@ func processDirect(event abci.Event) int64 {
 		}
 		return x.LiqFeeInRuneE8
 	case "switch":
-		var x record.Switch
+		var x record.SwitchEvent
 		if err := x.LoadTendermint(attrs); err != nil {
 			panic(err)
 		}

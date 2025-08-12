@@ -16,7 +16,7 @@ import (
 	"github.com/DataDog/zstd"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"gitlab.com/thorchain/midgard/config"
+	"github.com/switchlyprotocol/midgard/config"
 )
 
 var interrupted int32 = 0

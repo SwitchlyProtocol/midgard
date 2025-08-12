@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"strconv"
 
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/util/miderr"
-	"gitlab.com/thorchain/midgard/openapi/generated/oapigen"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/util/miderr"
+	"github.com/switchlyprotocol/midgard/openapi/generated/oapigen"
 )
 
 func blockIdFrom(strHeight string, strTimestamp string) (db.BlockId, miderr.Err) {

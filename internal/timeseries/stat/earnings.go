@@ -4,11 +4,11 @@ import (
 	"context"
 	"strconv"
 
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/timeseries"
-	"gitlab.com/thorchain/midgard/internal/util"
-	"gitlab.com/thorchain/midgard/internal/util/miderr"
-	"gitlab.com/thorchain/midgard/openapi/generated/oapigen"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/timeseries"
+	"github.com/switchlyprotocol/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/internal/util/miderr"
+	"github.com/switchlyprotocol/midgard/openapi/generated/oapigen"
 )
 
 type PoolEarnings struct {

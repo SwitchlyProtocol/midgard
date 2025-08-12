@@ -3,11 +3,11 @@ package main
 import (
 	"time"
 
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/fetch/sync/blockstore"
-	"gitlab.com/thorchain/midgard/internal/util/jobs"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync/blockstore"
+	"github.com/switchlyprotocol/midgard/internal/util/jobs"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
 )
 
 func main() {

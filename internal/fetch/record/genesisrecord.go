@@ -5,10 +5,10 @@ import (
 	"strconv"
 	"strings"
 
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/util"
-	"gitlab.com/thorchain/midgard/internal/util/miderr"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/internal/util/miderr"
 )
 
 // handle metadata after each insertion
@@ -62,7 +62,7 @@ func parseCosmosDenom(b string) (asset string, err error) {
 		err = fmt.Errorf("no units given in amount %q", b)
 		return
 	case "rune":
-		asset = nativeRune
+		asset = nativeSwitch
 	default:
 		asset = strings.ToUpper(denom)
 	}

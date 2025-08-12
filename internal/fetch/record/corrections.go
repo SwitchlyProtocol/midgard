@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"strings"
 
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/fetch/sync/chain"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync/chain"
 )
 
 const MidgardBalanceCorrectionAddress = "MidgardBalanceCorrectionAddress"
@@ -122,7 +122,7 @@ func registerArtificialDeposits(unitChanges artificialUnitChanges) {
 						},
 						StakeUnits: change.Units,
 					}
-					if AddressIsRune(change.Addr) {
+					if AddressIsSwitch(change.Addr) {
 						stake.RuneAddr = []byte(change.Addr)
 					} else {
 						stake.AssetAddr = []byte(change.Addr)

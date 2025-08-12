@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/db/testdb"
-	"gitlab.com/thorchain/midgard/internal/timeseries/stat"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/db/testdb"
+	"github.com/switchlyprotocol/midgard/internal/timeseries/stat"
 )
 
 func TestPoolAddsLookup(t *testing.T) {

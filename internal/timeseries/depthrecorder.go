@@ -7,10 +7,10 @@ import (
 	"strings"
 	"time"
 
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/fetch/record"
-	"gitlab.com/thorchain/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/fetch/record"
+	"github.com/switchlyprotocol/midgard/internal/util"
 )
 
 // MapDiff helps to get differences between snapshots of a map.

@@ -3,7 +3,7 @@ package stat
 import (
 	"context"
 
-	"gitlab.com/thorchain/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/db"
 )
 
 // TODO(acsaba): This file should be renamed to withdraw.go once the terminology of all

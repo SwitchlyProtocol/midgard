@@ -17,8 +17,8 @@ var GoldenAssets = []struct {
 	{"ETH.ETH", "ETH", "ETH", "", AssetNative, "ETH.ETH"},
 	{"ETH.USDT-0xdac17f958d2ee523a2206206994597c13d831ec7", "ETH", "USDT", "0xdac17f958d2ee523a2206206994597c13d831ec7", AssetNative, "ETH.USDT-0xdac17f958d2ee523a2206206994597c13d831ec7"},
 	{"BNB.BNB", "BNB", "BNB", "", AssetNative, "BNB.BNB"},
-	{"BNB.RUNE-B1A", "BNB", "RUNE", "B1A", Rune, "BNB.RUNE-B1A"},
-	{"THOR.RUNE", "THOR", "RUNE", "", Rune, "THOR.RUNE"},
+	{"BNB.RUNE-B1A", "BNB", "RUNE", "B1A", Switch, "BNB.RUNE-B1A"},
+	{"THOR.RUNE", "THOR", "RUNE", "", Switch, "THOR.RUNE"},
 	{"BNB/BNB", "BNB", "BNB", "", AssetSynth, "BNB.BNB"},
 	{"ETH/USDT-0xdac17f958d2ee523a2206206994597c13d831ec7", "ETH", "USDT", "0xdac17f958d2ee523a2206206994597c13d831ec7", AssetSynth, "ETH.USDT-0xdac17f958d2ee523a2206206994597c13d831ec7"},
 	{"", "", "", "", UnknownCoin, ""},
@@ -107,7 +107,7 @@ func TestScheduledOutbound(t *testing.T) {
 // double-swaps, whereby the trader sells .Pool asset with this event, and then
 // consecutively buys DoubleAsset in another event (with the same .Tx).
 func (e *Swap) DoubleAsset() (asset []byte) {
-	if IsRune(e.ToAsset) {
+	if IsSwitch(e.ToAsset) {
 		params := bytes.SplitN(e.Memo, []byte{':'}, 3)
 		if len(params) > 1 && !bytes.Equal(params[1], e.Pool) {
 			return params[1]
@@ -174,7 +174,7 @@ func TestTransfer(t *testing.T) {
 	}))
 	require.NoError(t, err)
 	require.Equal(t, int64(123), event.AmountE8)
-	require.Equal(t, nativeRune, string(event.Asset))
+	require.Equal(t, nativeSwitch, string(event.Asset))
 	require.Equal(t, "tthoraddr1", string(event.FromAddr))
 	require.Equal(t, "tthoraddr2", string(event.ToAddr))
 

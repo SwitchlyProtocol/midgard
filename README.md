@@ -1,12 +1,12 @@
-[![pipeline status](https://gitlab.com/thorchain/midgard/badges/master/pipeline.svg)](https://gitlab.com/thorchain/midgard/commits/master)
+[![pipeline status](https://github.com/switchlyprotocol/midgard/badges/master/pipeline.svg)](https://github.com/switchlyprotocol/midgard/commits/master)
 
 
 # Midgard API
 
 Midgard is a layer 2 REST API that provides front-end consumers with semi real-time rolled up data
-and analytics of the THORChain network. Most requests to the network will come through Midgard. This
+and analytics of the Switchly network. Most requests to the network will come through Midgard. This
 daemon is here to keep the chain itself from fielding large quantities of requests. You can think of
-it as a “read-only slave” to the chain. This keeps the resources of the network focused on
+it as a "read-only slave" to the chain. This keeps the resources of the network focused on
 processing transactions.
 
 
@@ -28,10 +28,10 @@ earlier ones. A good starting point for config files is in `config/ex` directory
 edit the config files you can `cp -r ./config/examples ./tmp/config` (gitignored) and edit them
 there.
 
-Second option: a full file is at `config/config.json` which assumes you are running a local ThorNode
+Second option: a full file is at `config/config.json` which assumes you are running a local SwitchlyNode
 and a PSQL. You can copy this file to `config/local.json` (which is ignored by `git`) and
 make desired changes.
-If you wish to connect to a specific ThorNode the proper urls can be found in
+If you wish to connect to a specific SwitchlyNode the proper urls can be found in
 `config/ex/net-local.json` (localhost), `config/ex/net-main.json` (mainnet),
 `config/ex/net-stage.json` (stagenet)
 

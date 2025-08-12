@@ -25,27 +25,27 @@ import (
 
 	abci "github.com/cometbft/cometbft/abci/types"
 
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/util"
-	"gitlab.com/thorchain/midgard/internal/util/miderr"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/internal/util/miderr"
 )
 
 // Asset Labels
 const (
-	// Native asset on THORChain.
-	nativeRune = "THOR.RUNE"
+	// Native asset on Switchly.
+	nativeSwitch = "SWITCHLY.SWITCH"
 	// Asset on Binance test net.
-	rune67C = "BNB.RUNE-67C"
+	switch67C = "BNB.SWITCH-67C"
 	// Asset on Binance main net.
-	runeB1A = "BNB.RUNE-B1A"
-	// TCY asset on THORChain.
-	nativeTCY = "THOR.TCY"
+	switchB1A = "BNB.SWITCH-B1A"
+	// TCY asset on Switchly.
+	nativeTCY = "SWITCHLY.TCY"
 )
 
-// IsRune returns whether asset matches any of the supported $RUNE assets.
-func IsRune(asset []byte) bool {
+// IsSwitch returns whether asset matches any of the supported $SWITCH assets.
+func IsSwitch(asset []byte) bool {
 	switch string(asset) {
-	case nativeRune, rune67C, runeB1A:
+	case nativeSwitch, switch67C, switchB1A:
 		return true
 	}
 	return false
@@ -63,8 +63,8 @@ func IsTcy(asset []byte) bool {
 type CoinType int
 
 const (
-	// Rune rune coin type
-	Rune CoinType = iota
+	// Switch coin type
+	Switch CoinType = iota
 	// AssetNative coin native to a chain
 	AssetNative
 	// AssetSynth synth coin
@@ -82,14 +82,14 @@ const (
 var (
 	nativeSeparator = []byte(".")
 	synthSeparator  = []byte("/")
-	derivedAsset    = []byte("THOR.")
+	derivedAsset    = []byte("SWITCHLY.")
 	tradeSeparator  = []byte("~")
 	secureSeparator = []byte("-")
 )
 
 func GetCoinType(asset []byte) CoinType {
-	if IsRune(asset) {
-		return Rune
+	if IsSwitch(asset) {
+		return Switch
 	}
 	if IsTcy(asset) {
 		return AssetNative
@@ -112,10 +112,10 @@ func GetCoinType(asset []byte) CoinType {
 	return UnknownCoin
 }
 
-// RuneAsset returns a matching RUNE asset given a running environment
-// (Logic is copied from THORnode code)
-func RuneAsset() string {
-	return nativeRune
+// SwitchAsset returns a matching SWITCH asset given a running environment
+// (Logic is copied from Switchly Node code)
+func SwitchAsset() string {
+	return nativeSwitch
 }
 
 // ParseAsset decomposes the notation.
@@ -249,7 +249,7 @@ func (e *Add) LoadTendermint(attrs []abci.EventAttribute) error {
 					return fmt.Errorf("malformed coin: %w", err)
 				}
 
-				if IsRune(asset) {
+				if IsSwitch(asset) {
 					e.RuneE8 = amountE8
 				} else {
 					e.AssetE8 = amountE8
@@ -1285,8 +1285,8 @@ func (e *Swap) LoadTendermint(attrs []abci.EventAttribute) error {
 	return nil
 }
 
-// Upgrade Rune to Native rune.
-type Switch struct {
+// Upgrade Switch to Native switch.
+type SwitchEvent struct {
 	Tx        []byte
 	FromAddr  []byte
 	ToAddr    []byte
@@ -1296,7 +1296,7 @@ type Switch struct {
 	MintE8    int64
 }
 
-func (e *Switch) LoadTendermint(attrs []abci.EventAttribute) error {
+func (e *SwitchEvent) LoadTendermint(attrs []abci.EventAttribute) error {
 	hadMintValue := false
 
 	for _, attr := range attrs {
@@ -1707,7 +1707,7 @@ func parseCosmosCoin(b []byte) (asset []byte, amountE8 int64, err error) {
 		err = fmt.Errorf("no units given in amount %q", b)
 		return
 	case "rune":
-		asset = []byte(nativeRune)
+		asset = []byte(nativeSwitch)
 	default:
 		asset = []byte(strings.ToUpper(unit))
 	}

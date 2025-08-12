@@ -12,13 +12,13 @@ import (
 	"time"
 
 	"github.com/lib/pq"
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/fetch/record"
-	"gitlab.com/thorchain/midgard/internal/util"
-	"gitlab.com/thorchain/midgard/internal/util/miderr"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
-	"gitlab.com/thorchain/midgard/openapi/generated/oapigen"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/fetch/record"
+	"github.com/switchlyprotocol/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/internal/util/miderr"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/openapi/generated/oapigen"
 )
 
 const DefaultLimit = 50
@@ -589,9 +589,9 @@ func (a *action) completeFromDBRead(meta *actionMeta, fees coinList, streamingMe
 				hasOut = true
 			}
 
-			// Double swaps with RUNE output is affiliate
-			isRune := record.IsRune([]byte(o.Coins[0].Asset))
-			if isRune && o.Address != a.in[0].Address && len(a.pools) > 1 {
+			// Double swaps with SWITCH output is affiliate
+			isSwitch := record.IsSwitch([]byte(o.Coins[0].Asset))
+			if isSwitch && o.Address != a.in[0].Address && len(a.pools) > 1 {
 				a.out[i].Affiliate = util.WrapBoolean(true)
 				// Show pending while only affiliate is available
 				if len(a.out) == 1 {
@@ -599,16 +599,16 @@ func (a *action) completeFromDBRead(meta *actionMeta, fees coinList, streamingMe
 				}
 			}
 
-			// Find the least amount of RUNE output
-			if o.Coins[0].Amount < min && meta.AffiliateFee > 0 && isRune {
+			// Find the least amount of SWITCH output
+			if o.Coins[0].Amount < min && meta.AffiliateFee > 0 && isSwitch {
 				min = o.Coins[0].Amount
 				ind = i
 			}
 		}
 
-		// Single swap affiliate detection BTC -> RUNE
+		// Single swap affiliate detection BTC -> SWITCH
 		outAsset := []byte(a.out[ind].Coins[0].Asset)
-		if len(a.pools) == 1 && len(a.out) > 1 && record.IsRune(outAsset) {
+		if len(a.pools) == 1 && len(a.out) > 1 && record.IsSwitch(outAsset) {
 			a.out[ind].Affiliate = util.WrapBoolean(true)
 		}
 
@@ -1042,7 +1042,7 @@ func actionsPreparedStatements(moment time.Time,
 	// it chooses to do a scan on `event_id` index and filter for rows that have the given
 	// txid, instead of using the `transactions` index and sorting afterwards. This is a very bad
 	// decision in this case.
-	// See https://gitlab.com/thorchain/midgard/-/issues/45 for details.
+	// See https://github.com/switchlyprotocol/midgard/-/issues/45 for details.
 	//
 	// The `OFFSET 0` in a sub-query is a semi-officially blessed hack to stop Postgres from
 	// inlining a sub-query; thus forcing it to create an independent plan for it. In which case

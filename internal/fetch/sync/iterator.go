@@ -3,9 +3,9 @@ package sync
 import (
 	"reflect"
 
-	"gitlab.com/thorchain/midgard/internal/fetch/sync/blockstore"
-	"gitlab.com/thorchain/midgard/internal/fetch/sync/chain"
-	"gitlab.com/thorchain/midgard/internal/util/miderr"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync/blockstore"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync/chain"
+	"github.com/switchlyprotocol/midgard/internal/util/miderr"
 )
 
 type Iterator struct {

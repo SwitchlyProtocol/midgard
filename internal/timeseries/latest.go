@@ -3,7 +3,7 @@ package timeseries
 import (
 	"sync"
 
-	"gitlab.com/thorchain/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/db"
 )
 
 type PoolDepths struct {

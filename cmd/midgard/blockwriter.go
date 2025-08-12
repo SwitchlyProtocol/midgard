@@ -5,12 +5,12 @@ import (
 	"errors"
 	"time"
 
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/fetch/sync/chain"
-	"gitlab.com/thorchain/midgard/internal/timeseries"
-	"gitlab.com/thorchain/midgard/internal/util/jobs"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync/chain"
+	"github.com/switchlyprotocol/midgard/internal/timeseries"
+	"github.com/switchlyprotocol/midgard/internal/util/jobs"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
 )
 
 type blockWriter struct {

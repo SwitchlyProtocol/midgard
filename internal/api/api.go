@@ -13,12 +13,12 @@ import (
 	"github.com/rs/zerolog/hlog"
 	"github.com/rs/zerolog/log"
 
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/decimal"
-	"gitlab.com/thorchain/midgard/internal/timeseries/stat"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
-	"gitlab.com/thorchain/midgard/internal/util/timer"
-	"gitlab.com/thorchain/midgard/internal/websockets"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/decimal"
+	"github.com/switchlyprotocol/midgard/internal/timeseries/stat"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/internal/util/timer"
+	"github.com/switchlyprotocol/midgard/internal/websockets"
 )
 
 // Handler serves the entire API.

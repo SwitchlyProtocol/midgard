@@ -4,9 +4,9 @@ import (
 	"context"
 
 	"github.com/lib/pq"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/util"
-	"gitlab.com/thorchain/midgard/openapi/generated/oapigen"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/openapi/generated/oapigen"
 )
 
 type Borrower struct {

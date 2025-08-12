@@ -15,13 +15,13 @@ import (
 
 	"github.com/pascaldekloe/metrics"
 	"github.com/rs/zerolog/log"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/util"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
-	"gitlab.com/thorchain/midgard/openapi/generated/oapigen"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/openapi/generated/oapigen"
 
-	"gitlab.com/thorchain/midgard/internal/fetch/notinchain"
-	"gitlab.com/thorchain/midgard/internal/fetch/record"
+	"github.com/switchlyprotocol/midgard/internal/fetch/notinchain"
+	"github.com/switchlyprotocol/midgard/internal/fetch/record"
 )
 
 // ErrBeyondLast denies a request into the future.

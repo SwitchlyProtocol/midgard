@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"gitlab.com/thorchain/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/db"
 )
 
 type THORNameEntry struct {

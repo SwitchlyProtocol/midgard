@@ -9,9 +9,9 @@ import (
 
 	coretypes "github.com/cometbft/cometbft/rpc/core/types"
 	"github.com/julienschmidt/httprouter"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/fetch/sync"
-	"gitlab.com/thorchain/midgard/internal/util/miderr"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync"
+	"github.com/switchlyprotocol/midgard/internal/util/miderr"
 )
 
 type DebugBlockResponse struct {

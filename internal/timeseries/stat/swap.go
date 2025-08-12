@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	"gitlab.com/thorchain/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/db"
 )
 
 // Swaps are generic swap statistics.

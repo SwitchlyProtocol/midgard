@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/kelseyhightower/envconfig"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
 	"gopkg.in/yaml.v3"
 )
 

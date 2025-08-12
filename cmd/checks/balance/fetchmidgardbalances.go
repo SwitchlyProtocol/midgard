@@ -1,8 +1,8 @@
 package main
 
 import (
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/util/midlog"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/util/midlog"
 )
 
 func readMidgardBalancesAt(timestamp int64) map[string]Balance {

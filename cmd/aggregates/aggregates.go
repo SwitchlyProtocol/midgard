@@ -11,11 +11,11 @@ import (
 
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/db"
-	"gitlab.com/thorchain/midgard/internal/db/dbinit"
-	_ "gitlab.com/thorchain/midgard/internal/timeseries/stat"
-	"gitlab.com/thorchain/midgard/internal/util"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/db/dbinit"
+	_ "github.com/switchlyprotocol/midgard/internal/timeseries/stat"
+	"github.com/switchlyprotocol/midgard/internal/util"
 )
 
 const usageString = `Print SQL definitions for a given aggregate

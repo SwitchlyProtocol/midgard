@@ -6,7 +6,7 @@ package timeseries
 import (
 	"time"
 
-	"gitlab.com/thorchain/midgard/internal/db"
+	"github.com/switchlyprotocol/midgard/internal/db"
 )
 
 func copyMap(m map[string]int64) map[string]int64 {

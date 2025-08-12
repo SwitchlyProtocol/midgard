@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"io"
 
-	"gitlab.com/thorchain/midgard/internal/fetch/sync/chain"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync/chain"
 )
 
 const (

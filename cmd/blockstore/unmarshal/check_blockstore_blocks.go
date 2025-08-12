@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"math/rand"
 
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/fetch/sync"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync"
 )
 
 func main() {

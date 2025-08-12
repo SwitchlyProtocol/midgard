@@ -12,9 +12,9 @@ import (
 	"github.com/DataDog/zstd"
 	tmjson "github.com/tendermint/tendermint/libs/json"
 
-	"gitlab.com/thorchain/midgard/config"
-	"gitlab.com/thorchain/midgard/internal/fetch/sync/blockstore"
-	"gitlab.com/thorchain/midgard/internal/fetch/sync/chain"
+	"github.com/switchlyprotocol/midgard/config"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync/blockstore"
+	"github.com/switchlyprotocol/midgard/internal/fetch/sync/chain"
 )
 
 func main() {
