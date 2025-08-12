@@ -2,17 +2,26 @@
   "listen_port": 8080,
   "max_block_age": "60s",
   "switchly": {
-    "tendermint_url": "http://localhost:27147/websocket",
-    "switchlynode_url": "http://localhost:1317/switchly",
-    "last_chain_backoff": "7s",
+    "tendermint_url": "http://switchlynode:26657/websocket",
+    "switchlynode_url": "http://switchlynode:1317/switchly",
+    "last_chain_backoff": "2s",
     "fetch_batch_size": 100,
     "parallelism": 10,
-    "read_timeout": "32s"
+    "read_timeout": "30s",
+    "max_status_retries": 3,
+    "status_retry_backoff": "1s",
+    "fork_infos": [
+      {
+        "chain_id": "switchly",
+        "earliest_block_hash": "41B58EB6F0B34D885BF4C4440FE967FBAD291D87FE4506743AB8264ECAA99704",
+        "earliest_block_height": 1
+      }
+    ]
   },
   "blockstore":{
   },
   "timescale": {
-    "host": "localhost",
+    "host": "midgard-db",
     "port": 5432,
     "user_name": "midgard",
     "password": "password",
